@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BasePresenterProtocol.h"
 
-@interface HomePresenter : NSObject
+@interface HomePresenter : NSObject<BasePresenterProtocol>
 
 @end

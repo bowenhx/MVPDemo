@@ -2,8 +2,8 @@
 //  BLoopImageView.h
 //  BKMobile
 //
-//  Created by Guibin on 15/1/13.
-//  Copyright (c) 2015年 com.mobile-kingdom.bkapps All rights reserved.
+//  Created by ligb on 2017/7/24.
+//  Copyright (c) 2017年 com.mobile-kingdom.bkapps All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

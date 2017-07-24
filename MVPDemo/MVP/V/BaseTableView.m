@@ -8,14 +8,31 @@
 
 #import "BaseTableView.h"
 
+@interface BaseTableView ()<UITableViewDelegate,UITableViewDataSource>
+
+
+@end
+
 @implementation BaseTableView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+#pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return 5;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tabCell" forIndexPath:indexPath];
+    
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"cell_row_%zd",indexPath.row];
+    return cell;
+}
 @end

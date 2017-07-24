@@ -10,4 +10,6 @@
 
 @protocol BaseNetworkProtocol <NSObject>
 
++ (id<BaseNetworkProtocol>)startGETURL:(void(^)(NSArray *info, NSString *error))block;
+
 @end

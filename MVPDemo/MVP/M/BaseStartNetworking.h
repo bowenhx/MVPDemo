@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseNetworkProtocol.h"
 
-@interface BaseStartNetworking : NSObject
+
+@interface BaseStartNetworking : NSObject<BaseNetworkProtocol>
 
 @end

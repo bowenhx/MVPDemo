@@ -2,14 +2,15 @@
 //  BLoopImageView.m
 //  BKMobile
 //
-//  Created by Guibin on 15/1/13.
-//  Copyright (c) 2015年 com.mobile-kingdom.bkapps All rights reserved.
+//  Created by ligb on 2017/7/24.
+//  Copyright (c) 2017年 com.mobile-kingdom.bkapps All rights reserved.
 //
 
 #import "BLoopImageView.h"
 #import <objc/runtime.h>
-#import "HKBKDefine.h"
-#define WIDTH(v)      (v).frame.size.width
+#import "UIImageView+WebCache.h"
+
+#define WIDTH(v)           (v).frame.size.width
 #define rgb(r, g, b)       [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1.0]
 
 @interface BLoopImageView ()
@@ -102,7 +103,7 @@ static char SG_FOCUS_ITEM_ASS_KEY;
     
     _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(WIDTH(_scrollView)-80, _scrollView.frame.size.height -16-10, 80, 20)];
     _pageControl.userInteractionEnabled = NO;
-    _pageControl.currentPageIndicatorTintColor = [UIColor color117Bg];
+    _pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
     _pageControl.pageIndicatorTintColor = [UIColor whiteColor];
     
     [self addSubview:_scrollView];
@@ -138,17 +139,8 @@ static char SG_FOCUS_ITEM_ASS_KEY;
             _showTime = item.residencetime;
         }
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * WIDTH(_scrollView), 0, WIDTH(_scrollView), _scrollView.frame.size.height)];
-        if ([item.imgurl hasSuffix:@"gif"]) {
-            [imageView getImage:item.imgurl result:^(NSData *data) {
-                if (data) {
-                    imageView.gifData = data;
-                    [imageView startGIF];
-                }
-            }];
-        }else{
-            //加载图片
-            [imageView sd_setImageWithURL:[NSURL URLWithString:item.imgurl]];
-        }
+        //加载图片
+        [imageView sd_setImageWithURL:[NSURL URLWithString:item.imgurl]];
         
         UILabel *labText = [[UILabel alloc] initWithFrame:CGRectMake(i * WIDTH(_scrollView), _scrollView.frame.size.height-35, WIDTH(_scrollView), 35)];
         labText.backgroundColor = [UIColor blackColor];

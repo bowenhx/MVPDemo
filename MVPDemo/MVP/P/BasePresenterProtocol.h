@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol BasePresenter <NSObject>
+@protocol BasePresenterProtocol <NSObject>
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "BLoopImageItem.h"
-#import "HKBKDefine.h"
+
 
 @implementation BLoopImageItem
 
