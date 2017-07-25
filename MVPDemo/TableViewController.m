@@ -7,11 +7,15 @@
 //
 
 #import "TableViewController.h"
+#import "HomePresenter.h"
+#import "BLoopImageView.h"
+//#import "BaseViewProtocol.h"
+#import "BasePresenterProtocol.h"
 
-typedef NSString * (^backBlock)(NSArray *arr, NSString *netErr);
 
-@interface TableViewController ()
+@interface TableViewController ()<BasePresenterProtocol>
 
+@property (nonatomic, strong) HomePresenter *presenter;
 @end
 
 @implementation TableViewController
@@ -19,7 +23,29 @@ typedef NSString * (^backBlock)(NSArray *arr, NSString *netErr);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //初始化一个P对象
+    _presenter = [[HomePresenter alloc] init];
+    
+    //使用协议绑定进行数据传输
+    _presenter.protocol = self;
+    
+    //显示head view
+    self.tableView.tableHeaderView = _presenter.headView;
+    
+    
+    [_presenter loadData];
+    
+    
  
+}
+
+
+
+- (void)showRemindTitle:(NSString *)message{
+    if (message) {
+        //show view
+        [[[UIAlertView alloc] initWithTitle:@"温馨提示" message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
+    }
 }
 
 #pragma mark - Table view data source

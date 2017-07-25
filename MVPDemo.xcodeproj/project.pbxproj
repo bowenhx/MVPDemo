@@ -95,6 +95,7 @@
 		91013D551F262CEE008D24B0 /* BaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableView.m; sourceTree = "<group>"; };
 		91013D5A1F263DEC008D24B0 /* HomePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePresenter.h; sourceTree = "<group>"; };
 		91013D5B1F263DEC008D24B0 /* HomePresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePresenter.m; sourceTree = "<group>"; };
+		921D53C51F271BF30077105F /* BaseViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewProtocol.h; sourceTree = "<group>"; };
 		9289BDF21F25A4EB00BDF5C6 /* MVPDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVPDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9289BDF51F25A4EB00BDF5C6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9289BDF61F25A4EB00BDF5C6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -257,6 +258,7 @@
 		9289BE191F25A59100BDF5C6 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				921D53C51F271BF30077105F /* BaseViewProtocol.h */,
 				9289BE251F25F1D300BDF5C6 /* BLoopImageView.h */,
 				9289BE241F25F1D300BDF5C6 /* BLoopImageView.m */,
 				91013D541F262CEE008D24B0 /* BaseTableView.h */,

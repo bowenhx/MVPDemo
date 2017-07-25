@@ -69,7 +69,7 @@ static char SG_FOCUS_ITEM_ASS_KEY;
         _isAutoPlay = isAuto;
         [self setupViews];
         
-        [self setDelegate:delegate];
+       self.delegate = delegate;
     }
     return self;
 }
@@ -77,7 +77,7 @@ static char SG_FOCUS_ITEM_ASS_KEY;
 {
     return [self initWithFrame:frame delegate:delegate imageItems:items isAuto:YES];
 }
-- (void)setItemsArr:(NSMutableArray *)itemsArr
+- (void)setItemsArr:(NSArray<BLoopImageItem *> *)itemsArr
 {
     _itemsArr = itemsArr;
     objc_setAssociatedObject(self, &SG_FOCUS_ITEM_ASS_KEY, itemsArr, OBJC_ASSOCIATION_RETAIN_NONATOMIC);

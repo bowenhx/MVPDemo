@@ -10,28 +10,50 @@
 #import "HomeListModel.h"
 #import "BLoopImageView.h"
 
-@interface HomePresenter ()
+#define Screen_bounds  [UIScreen mainScreen].bounds
 
-@property (nonatomic, strong) HomeListModel *listModel;
-@property (nonatomic, strong) BLoopImageView *headView;
+@interface HomePresenter ()<BLoopImageViewDelegate>
+
 @end
 
 
 @implementation HomePresenter
 
-
 - (instancetype)init{
     if (self = [super init]) {
-        self.listModel = [HomeListModel startGETURL:^(NSArray *info, NSString *error) {
-            
-        }];
-
+        
     }
     return self;
 }
 
-- (void)setHeadView:(BLoopImageView *)imageView{
-    self.headView = imageView;
+- (BLoopImageView *)headView{
+    if (!_headView) {
+        _headView = [[BLoopImageView alloc] initWithFrame:CGRectMake(0, 0, Screen_bounds.size.width, 240) delegate:self imageItems:nil isAuto:YES];
+    }
+    return _headView;
+}
+- (void)setProtocol:(id<BasePresenterProtocol>)protocol{
+    _protocol = protocol;
+}
+
+- (void)loadData{
+    [HomeListModel startGETURL:^(NSArray *info, NSString *error) {
+        if (error) {
+            if (self.protocol) {
+                [self.protocol showRemindTitle:error];
+            }
+        } else {
+            [self.headView setItemsArr:info];
+        }
+    }];
+}
+
+#pragma mark
+- (void)foucusImageFrame:(BLoopImageView *)imageView didSelectItem:(BLoopImageItem *)item{
+    NSLog(@"item.title = %@",item.title);
+}
+- (void)foucusImageFrame:(BLoopImageView *)imageView currentItem:(NSInteger)index{
+    NSLog(@"index = %zd",index);
 }
 
 - (void)cancelHeadView{

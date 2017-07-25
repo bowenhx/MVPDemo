@@ -10,4 +10,6 @@
 
 @protocol BasePresenterProtocol <NSObject>
 
+- (void)showRemindTitle:(NSString *)message;
+
 @end

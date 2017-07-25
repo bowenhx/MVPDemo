@@ -21,8 +21,8 @@
 @interface BLoopImageView : UIView  <UIGestureRecognizerDelegate, UIScrollViewDelegate>
 
 @property BOOL isAutoPlay;
-@property (nonatomic, assign) id<BLoopImageViewDelegate> delegate;
-@property (nonatomic , strong) NSMutableArray *itemsArr;
+@property (nonatomic, weak) id<BLoopImageViewDelegate> delegate;
+@property (nonatomic, copy) NSArray <BLoopImageItem *> *itemsArr;
 
 - (id)initWithFrame:(CGRect)frame delegate:(id<BLoopImageViewDelegate>)delegate imageItems:(NSArray *)items isAuto:(BOOL)isAuto;
 

@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "BasePresenterProtocol.h"
 
-@interface HomePresenter : NSObject<BasePresenterProtocol>
+@class BLoopImageView;
+
+@interface HomePresenter : NSObject
+
+@property (nonatomic, strong) BLoopImageView *headView;
+@property (nonatomic, weak) id<BasePresenterProtocol> protocol;
+
+- (void)loadData;
 
 @end

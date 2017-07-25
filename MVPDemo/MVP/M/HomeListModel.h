@@ -12,9 +12,5 @@
 
 @interface HomeListModel : NSObject<BaseNetworkProtocol>
 
-@property (nonatomic , copy) NSArray <BLoopImageItem *> *arrays;
-
-
-
 
 @end
