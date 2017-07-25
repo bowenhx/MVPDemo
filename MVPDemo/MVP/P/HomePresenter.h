@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BasePresenterProtocol.h"
+#import "BaseViewProtocol.h"
 
 @class BLoopImageView;
 
 @interface HomePresenter : NSObject
 
 @property (nonatomic, strong) BLoopImageView *headView;
-@property (nonatomic, weak) id<BasePresenterProtocol> protocol;
+@property (nonatomic, weak) id<BaseViewProtocol> protocol;
 
 - (void)loadData;
 

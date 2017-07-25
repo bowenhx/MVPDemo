@@ -10,7 +10,6 @@
 
 @protocol BaseViewProtocol <NSObject>
 
-- (id<BaseViewProtocol>)getView;
-
+- (void)showRemindTitle:(NSString *)message;
 
 @end

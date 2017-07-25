@@ -110,7 +110,6 @@
 		9289BE1B1F25A5DD00BDF5C6 /* HomeListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeListModel.m; sourceTree = "<group>"; };
 		9289BE1D1F25A6D500BDF5C6 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		9289BE1E1F25A6D500BDF5C6 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
-		9289BE201F25B5BB00BDF5C6 /* BasePresenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasePresenterProtocol.h; sourceTree = "<group>"; };
 		9289BE241F25F1D300BDF5C6 /* BLoopImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLoopImageView.m; sourceTree = "<group>"; };
 		9289BE251F25F1D300BDF5C6 /* BLoopImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLoopImageView.h; sourceTree = "<group>"; };
 		9289BE271F25F33000BDF5C6 /* BaseNetworkProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNetworkProtocol.h; sourceTree = "<group>"; };
@@ -248,7 +247,6 @@
 		9289BE181F25A59100BDF5C6 /* P */ = {
 			isa = PBXGroup;
 			children = (
-				9289BE201F25B5BB00BDF5C6 /* BasePresenterProtocol.h */,
 				91013D5A1F263DEC008D24B0 /* HomePresenter.h */,
 				91013D5B1F263DEC008D24B0 /* HomePresenter.m */,
 			);

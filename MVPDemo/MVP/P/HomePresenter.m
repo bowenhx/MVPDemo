@@ -32,7 +32,8 @@
     }
     return _headView;
 }
-- (void)setProtocol:(id<BasePresenterProtocol>)protocol{
+
+- (void)setProtocol:(id<BaseViewProtocol>)protocol{
     _protocol = protocol;
 }
 

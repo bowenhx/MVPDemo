@@ -9,13 +9,15 @@
 #import "TableViewController.h"
 #import "HomePresenter.h"
 #import "BLoopImageView.h"
-//#import "BaseViewProtocol.h"
-#import "BasePresenterProtocol.h"
+#import "BaseViewProtocol.h"
 
 
-@interface TableViewController ()<BasePresenterProtocol>
 
+@interface TableViewController ()<BaseViewProtocol>
+
+//V 层需要持有P 层的对象
 @property (nonatomic, strong) HomePresenter *presenter;
+
 @end
 
 @implementation TableViewController
@@ -57,7 +59,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 5;
+    return 15;
 }
 
 
