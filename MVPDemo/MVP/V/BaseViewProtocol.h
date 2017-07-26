@@ -12,4 +12,6 @@
 
 - (void)showRemindTitle:(NSString *)message;
 
+@optional
+- (void)testTouchAction:(NSInteger)index;
 @end

@@ -14,6 +14,7 @@
 @interface HomePresenter : NSObject
 
 @property (nonatomic, strong) BLoopImageView *headView;
+//制定一个协议，例如数据更新时当有数据需要回调，或者点击view 事件回调
 @property (nonatomic, weak) id<BaseViewProtocol> protocol;
 
 - (void)loadData;

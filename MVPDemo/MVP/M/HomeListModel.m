@@ -30,6 +30,8 @@
     }];
 }
 
+
+//组装数据并返回
 + (NSArray *)loadPackageData:(NSArray *)images{
     //添加最后一张图 用于循环
     int length = (unsigned)images.count;

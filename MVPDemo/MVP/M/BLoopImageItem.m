@@ -11,25 +11,6 @@
 
 @implementation BLoopImageItem
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        
-    }
-    return self;
-}
-- (id)initWithTitle:(NSString *)title image:(NSString *)image tag:(NSInteger)tag
-{
-    self = [super init];
-    if (self) {
-        self.title = title;
-        self.imgurl = image;
-        self.tag = tag;
-    }
-    
-    return self;
-}
 
 - (id)initWithDict:(NSDictionary *)dict tag:(NSInteger)tag
 {

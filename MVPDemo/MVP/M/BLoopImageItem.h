@@ -6,12 +6,7 @@
 //  Copyright (c) 2015年 com.mobile-kingdom.bkapps All rights reserved.
 //
 /**
- *  创建存储对象 （首页论坛headImage）
- *
- *  @param nonatomic 图片信息
- *  @param retain
- *
- *  @return
+ 单纯的model 数据模型
  */
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -24,10 +19,10 @@
 @property (nonatomic, assign)   NSInteger     residencetime;
 @property (nonatomic, assign)   NSInteger     tid;
 @property (nonatomic, assign)   NSInteger     tag;
-@property (nonatomic , strong)  UIImageView   *imgView;
+@property (nonatomic, strong)   UIImageView   *imgView;
 
 
-- (id)initWithTitle:(NSString *)title image:(NSString *)image tag:(NSInteger)tag;
+
 - (id)initWithDict:(NSDictionary *)dict tag:(NSInteger)tag;
 
 @end

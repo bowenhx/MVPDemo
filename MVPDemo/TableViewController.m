@@ -10,12 +10,12 @@
 #import "HomePresenter.h"
 #import "BLoopImageView.h"
 #import "BaseViewProtocol.h"
-
+#import "ViewController.h"
 
 
 @interface TableViewController ()<BaseViewProtocol>
 
-//V 层需要持有P 层的对象
+//V 层包括UIView 和UIViewController及子类，需要持有P 层的实例对象
 @property (nonatomic, strong) HomePresenter *presenter;
 
 @end
@@ -48,6 +48,11 @@
         //show view
         [[[UIAlertView alloc] initWithTitle:@"温馨提示" message:message delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] show];
     }
+}
+
+- (void)testTouchAction:(NSInteger)index{
+    ViewController *viewC = [self.storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+    [self.navigationController pushViewController:viewC animated:YES];
 }
 
 #pragma mark - Table view data source
