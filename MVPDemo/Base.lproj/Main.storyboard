@@ -38,10 +38,10 @@
             </objects>
             <point key="canvasLocation" x="250" y="81"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="hfs-H3-kKh">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="NTk-go-beo" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="NTk-go-beo" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xXG-ji-rTV"/>
                         <viewControllerLayoutGuide type="bottom" id="Wx2-MZ-m6r"/>
@@ -49,12 +49,37 @@
                     <view key="view" contentMode="scaleToFill" id="BRv-hu-pBH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YfO-xo-oWM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tabCell" id="Mhg-ca-n9r">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mhg-ca-n9r" id="tA1-68-jGJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YfO-xo-oWM" firstAttribute="leading" secondItem="BRv-hu-pBH" secondAttribute="leading" id="HkB-DU-cNq"/>
+                            <constraint firstItem="Wx2-MZ-m6r" firstAttribute="top" secondItem="YfO-xo-oWM" secondAttribute="bottom" id="bW8-DC-HJX"/>
+                            <constraint firstAttribute="trailing" secondItem="YfO-xo-oWM" secondAttribute="trailing" id="cUV-xx-dbV"/>
+                            <constraint firstItem="YfO-xo-oWM" firstAttribute="top" secondItem="BRv-hu-pBH" secondAttribute="top" id="fRW-hw-F4k"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="YfO-xo-oWM" id="j1c-Oq-MJN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZZf-6e-pbu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1106" y="22"/>
+            <point key="canvasLocation" x="1092" y="95"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OVh-83-3ZL">
