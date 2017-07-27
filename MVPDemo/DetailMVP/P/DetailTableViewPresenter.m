@@ -1,19 +1,21 @@
 //
-//  BaseTableView.m
+//  BaseTableViewProtocol.m
 //  MVPDemo
 //
-//  Created by stray s on 2017/7/24.
+//  Created by stray s on 2017/7/27.
 //  Copyright © 2017年 com.mobile-kingdom.ekapps. All rights reserved.
 //
 
-#import "BaseTableView.h"
+#import "DetailTableViewPresenter.h"
 
-@interface BaseTableView ()<UITableViewDelegate,UITableViewDataSource>
+@implementation DetailTableViewPresenter
 
 
-@end
-
-@implementation BaseTableView
+- (void)loadData{
+    
+    
+    
+}
 
 #pragma mark - Table view data source
 
@@ -35,4 +37,5 @@
     cell.textLabel.text = [NSString stringWithFormat:@"cell_row_%zd",indexPath.row];
     return cell;
 }
+
 @end
