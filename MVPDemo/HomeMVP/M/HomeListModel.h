@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BaseNetworkProtocol.h"
+#import "BaseStartNetworking.h"
 #import "BLoopImageItem.h"
 
-@interface HomeListModel : NSObject<BaseNetworkProtocol>
+@interface HomeListModel :BaseStartNetworking
+
++ (void)startHomeList:(CompletionBlock)block;
 
 //组装数据并返回
 + (NSArray <BLoopImageItem *>*)loadPackageData:(NSArray *)images;

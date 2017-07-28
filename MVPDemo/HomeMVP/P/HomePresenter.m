@@ -32,11 +32,11 @@
 }
 
 - (void)loadData{
-    [HomeListModel startGETURL:^(BKNetworkModel *model, NSString *error) {
-        if (error) {
+    [HomeListModel startHomeList:^(BKNetworkModel *model, NSString *netErr) {
+        if (netErr) {
             //当请求出错时需要回调给出提示信息
             if (self.protocol) {
-                [self.protocol showRemindData:nil Title:error];
+                [self.protocol showRemindData:nil Title:netErr];
             }
         } else {
             if (model.status) {
@@ -45,12 +45,14 @@
                     NSArray *items = [HomeListModel loadPackageData:data[@"lists"]];
                     
                     if (self.protocol) {
-                        [self.protocol showRemindData:items Title:error];
+                        [self.protocol showRemindData:items Title:nil];
                     }
                 }
             }
         }
     }];
+    
+    
 }
 
 

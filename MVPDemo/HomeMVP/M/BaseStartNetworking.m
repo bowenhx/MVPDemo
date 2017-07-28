@@ -11,17 +11,31 @@
 
 @implementation BaseStartNetworking
 
-+ (void)startWithLoadData:(void (^)(NSArray *, NSString *))block{
-    [[BKNetworking share] get:@"http://bapi.baby-kingdom.com/index.php?mod=stand&op=index&ver=3.0.0&app=android" completion:^(BKNetworkModel *model, NSString *netErr) {
++ (void)start:(NSString *)urlString parameters:(NSDictionary *)parameters response:(CompletionBlock)block{
+    if (parameters) {
+        [self startPOST:urlString parameters:parameters response:block];
+    } else {
+        [self startGET:urlString response:block];
+    }
+}
+
+
++ (void)startGET:(NSString *)urlString response:(CompletionBlock)block{
+    [[BKNetworking share] get:urlString completion:^(BKNetworkModel *model, NSString *netErr) {
         if (netErr) {
             block(nil, netErr);
         } else {
-            if (model.status) {
-                NSDictionary *data = model.data;
-                if ([data isKindOfClass:[NSDictionary class]]) {
-                    block (data[@"list"] , nil);
-                }
-            }
+            block(model, nil);
+        }
+    }];
+}
+
++ (void)startPOST:(NSString *)urlSring parameters:(NSDictionary *)parameters response:(CompletionBlock)block{
+    [[BKNetworking share] post:urlSring params:parameters completion:^(BKNetworkModel *model, NSString *netErr) {
+        if (netErr) {
+            block(nil, netErr);
+        } else {
+            block(model, nil);
         }
     }];
 }

@@ -12,16 +12,13 @@
 
 @implementation HomeListModel
 
-+ (void)startGETURL:(void (^)(BKNetworkModel *model, NSString *error))block{
-    [[BKNetworking share] get:@"http://bapi.baby-kingdom.com/index.php?mod=stand&op=index&ver=3.6.0&app=ios" completion:^(BKNetworkModel *model, NSString *netErr) {
-        if (netErr) {
-            block(nil, netErr);
-        } else {
-            
-            block(model, nil);
-        }
+//发起首页类别的网络请求
++ (void)startHomeList:(CompletionBlock)block{
+    [self start:@"http://bapi.baby-kingdom.com/index.php?mod=stand&op=index&ver=3.0.0&app=android" parameters:nil response:^(BKNetworkModel *model, NSString *netErr) {
+        block (model, netErr);
     }];
 }
+
 
 
 //组装数据并返回

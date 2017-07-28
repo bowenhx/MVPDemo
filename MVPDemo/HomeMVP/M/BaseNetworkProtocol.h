@@ -11,6 +11,11 @@
 
 @protocol BaseNetworkProtocol <NSObject>
 
-+ (void)startGETURL:(void(^)(BKNetworkModel *model, NSString *error))block;
++ (void)start:(NSString *)urlString parameters:(NSDictionary *)parameters response:(CompletionBlock)block;
+
+@optional
++ (void)startGET:(NSString *)urlString response:(CompletionBlock)block;
+
++ (void)startPOST:(NSString *)urlSring parameters:(NSDictionary *)parameters response:(CompletionBlock)block;
 
 @end
