@@ -14,7 +14,7 @@
 
 //发起首页类别的网络请求
 + (void)startHomeList:(CompletionBlock)block{
-    [self start:@"http://bapi.baby-kingdom.com/index.php?mod=stand&op=index&ver=3.0.0&app=android" parameters:nil response:^(BKNetworkModel *model, NSString *netErr) {
+    [self start:@"http://bapi.baby-kingdom.com/index.php?mod=stand&op=index&ver=3.0.0&app=ios" parameters:nil response:^(BKNetworkModel *model, NSString *netErr) {
         block (model, netErr);
     }];
 }

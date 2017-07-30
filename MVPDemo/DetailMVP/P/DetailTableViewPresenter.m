@@ -7,35 +7,52 @@
 //
 
 #import "DetailTableViewPresenter.h"
+#import "DetailDataModel.h"
+#import "DetailTableViewCell.h"
+#import "BaseViewUpdataProtocol.h"
+#import "HomeListModel.h"
+#import "BLoopImageItem.h"
+@interface DetailTableViewPresenter ()
+
+
+
+@end
 
 @implementation DetailTableViewPresenter
 
+- (instancetype)init{
+    if (self = [super init]) {
+       
+    }
+    return self;
+}
+
 
 - (void)loadData{
-    
+    //问Model 层获取数据
+    [DetailDataModel loadDetailDataModel:^(BKNetworkModel *model, NSString *netErr) {
+        if (!self.protocol)  return ;
+        
+        if (netErr) {
+             [(id<BaseViewUpdataProtocol>)self.protocol updataData:nil error:netErr];
+        } else {
+            NSArray *arr = [DetailDataModel listdata:model.data];
+            
+            [(id<BaseViewUpdataProtocol>)self.protocol updataData:arr error:netErr];
+        }
+        
+        
+    }];
     
     
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return 5;
-}
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tabCell" forIndexPath:indexPath];
-    
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"cell_row_%zd",indexPath.row];
-    return cell;
-}
+
+
+
 
 @end

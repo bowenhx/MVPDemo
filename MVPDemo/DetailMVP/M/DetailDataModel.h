@@ -6,8 +6,13 @@
 //  Copyright © 2017年 com.mobile-kingdom.ekapps. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "BaseStartNetworking.h"
+#import "DetailListModel.h"
 
-@interface DetailDataModel : NSObject
+@interface DetailDataModel : BaseStartNetworking
+
++ (void)loadDetailDataModel:(CompletionBlock)block;
+
++ (NSArray <DetailListModel *> *)listdata:(NSDictionary *)info;
 
 @end

@@ -10,8 +10,8 @@
  */
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
-@interface BLoopImageItem : NSObject
+#import "BKNetworkModel.h"
+@interface BLoopImageItem : BKNetworkModel
 
 @property (nonatomic, copy)     NSString      *title;
 @property (nonatomic, strong)   NSString      *imgurl;

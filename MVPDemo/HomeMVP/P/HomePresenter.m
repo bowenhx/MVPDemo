@@ -8,6 +8,7 @@
 
 #import "HomePresenter.h"
 #import "HomeListModel.h"
+#import "HomeViewProtocol.h"
 
 @interface HomePresenter ()
 
@@ -27,25 +28,28 @@
     return self;
 }
 
-- (void)setProtocol:(id<BaseViewProtocol>)protocol{
-    _protocol = protocol;
-}
 
 - (void)loadData{
     [HomeListModel startHomeList:^(BKNetworkModel *model, NSString *netErr) {
+        
+        
         if (netErr) {
+            
             //当请求出错时需要回调给出提示信息
             if (self.protocol) {
-                [self.protocol showRemindData:nil Title:netErr];
+                 [(id<HomeViewProtocol>)self.protocol updataData:nil error:netErr];
+//                [(id<HomeViewProtocol>)self.protocol showRemindData:nil Title:netErr];
             }
         } else {
             if (model.status) {
                 NSDictionary *data = model.data;
                 if ([data isKindOfClass:[NSDictionary class]]) {
-                    NSArray *items = [HomeListModel loadPackageData:data[@"lists"]];
+                    NSArray <BLoopImageItem *> *items = [HomeListModel loadPackageData:data[@"lists"]];
                     
                     if (self.protocol) {
-                        [self.protocol showRemindData:items Title:nil];
+                        [(id<HomeViewProtocol>)self.protocol updataData:items error:nil];
+
+//                        [(id<HomeViewProtocol>)self.protocol showRemindData:items Title:nil];
                     }
                 }
             }
@@ -56,10 +60,6 @@
 }
 
 
-
-- (void)cancelViewProtocol{
-    self.protocol = nil;
-}
 
 
 @end
